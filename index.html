@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canoe Polo部 広報サイト</title>
+    <style>
+        :root {
+            /* スカイブルーとネイビーを基調に */
+            --primary-color: #0077be; 
+            --accent-color: #ff9800;
+            --bg-light: #f8f9fa;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+        }
+
+        /* ヘッダーの装飾 */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #00aaff);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+
+        /* ナビゲーション */
+        nav {
+            background: white;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        section {
+            padding: 4rem 1.5rem;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h2 {
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        /* カードデザイン */
+        .card {
+            background: white;
+            border: none;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .card strong {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* フォームの改善 */
+        form {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        input, textarea {
+            margin-bottom: 1.2rem;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #005fa3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #222;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        /* リストの装飾 */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            background: #eef7ff;
+            margin-bottom: 8px;
+            padding: 10px 15px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>カヌーポロ部 公式サイト</h1>
+    <p>〜 水上の格闘技に挑む、最高のチーム 〜</p>
+</header>
+
+<nav>
+    <a href="#about">活動紹介</a>
+    <a href="#news">お知らせ</a>
+    <a href="#contact">お問い合わせ</a>
+</nav>
+
+<section id="about">
+    <h2>活動紹介</h2>
+    <p>私たちの部活は、週に5回、<strong>「人間性が高いチーム」</strong>を目標に切磋琢磨しています！<br>
+    カヌーポロは、カヌーを操りながら水上のゴールにボールを入れるエキサイティングなスポーツです。初心者も大歓迎！</p>
+    <ul>
+        <li>📅 <strong>活動日:</strong> 火・木 (16:00~18:00) / 水・金 (16:30~18:30)</li>
+        <li>📍 <strong>場所:</strong> 平日 竹田川 / 休日 北潟湖</li>
+        <li>🏆 <strong>目標:</strong> 高校選手権優勝、あわらカップTOP3進出</li>
+    </ul>
+</section>
+
+<section id="news">
+    <h2>お知らせ</h2>
+    <div id="news-container">
+        </div>
+</section>
+
+<section id="contact">
+    <h2>体験・入部のお問い合わせ</h2>
+    <form id="form">
+        <label for="name">お名前</label>
+        <input type="text" id="name" placeholder="例：山田 太郎" required>
+        
+        <label for="email">メールアドレス</label>
+        <input type="email" id="email" placeholder="example@mail.com" required>
+        
+        <label for="message">質問・メッセージ</label>
+        <textarea id="message" rows="5" placeholder="体験希望日や質問などがあれば入力してください" required></textarea>
+        
+        <button type="submit">この内容で送信する</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2025 カヌーポロ部 広報チーム</p>
+</footer>
+
+<script>
+    // 1. お知らせデータの管理（日付順に自動ソート）
+    const newsData = [
+        { date: "2024/05/20", title: "【告知】新入生歓迎会のお知らせ" },
+        { date: "2025/08/29", title: "【結果報告】高校選手権2025 兼 あわらカップジュニア選手権" },
+        { date: "2025/05/01", title: "【結果報告】福井県カヌーポロ選手権2025" }
+    ];
+
+    // 日付の新しい順に並び替え
+    newsData.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    const newsContainer = document.getElementById('news-container');
+    newsData.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'card';
+        div.innerHTML = `<strong>${item.date}</strong><p style="margin:5px 0 0; font-weight:bold;">${item.title}</p>`;
+        newsContainer.appendChild(div);
+    });
+
+    // 2. フォーム送信のシミュレーション
+    document.getElementById('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        alert(`${name}さん、お問い合わせを受け付けました！\n(※デモ画面のため、実際のメール送信は行われません)`);
+        this.reset();
+    });
+</script>
+
+</body>
+</html>
