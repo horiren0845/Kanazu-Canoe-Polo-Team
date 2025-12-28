@@ -2,28 +2,37 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>マイ・ウェブサイト</title>
+    <style>
+        /* 前回のデザイン */
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; transition: background-color 0.5s; }
+        header { background: #333; color: #fff; padding: 10px; text-align: center; }
+        .menu { margin: 10px 0; text-align: center; }
+        .menu a { color: #007bff; text-decoration: none; font-weight: bold; }
+    </style>
 </head>
 <body>
 
     <header>
         <h1>マイ・ウェブサイト</h1>
-        
-        <a href="about.html">自己紹介ページを見る</a>
-        <hr> 
     </header>
 
-    <main>
+    <div class="menu">
+        <a href="about.html">自己紹介ページを見る</a>
+    </div>
+
+    <main style="text-align: center; margin-top: 30px;">
         <h2>ホーム</h2>
-        <p>ここはトップページです。</p>
+        <p>ボタンを押すと背景色が変わります。</p>
         
-        <button id="colorButton">背景色を変える</button>
+        <button id="colorButton" style="padding: 10px 20px; cursor: pointer;">背景色を変える</button>
     </main>
 
     <script>
-        // 背景色を変えるJavaScript（前回の残り）
+        // 前回のJavaScript（背景色を変える動き）
         const btn = document.getElementById('colorButton');
-        const colors = ['#f4f4f4', '#e3f2fd', '#fff3e0'];
+        const colors = ['#f4f4f4', '#e3f2fd', '#fff3e0', '#f1f8e9'];
         let i = 0;
         btn.addEventListener('click', () => {
             i = (i + 1) % colors.length;
