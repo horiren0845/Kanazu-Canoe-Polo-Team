@@ -3,42 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>マイ・ウェブサイト</title>
+    <title>私のWebサイト</title>
     <style>
-        /* 前回のデザイン */
-        body { font-family: sans-serif; line-height: 1.6; padding: 20px; transition: background-color 0.5s; }
-        header { background: #333; color: #fff; padding: 10px; text-align: center; }
-        .menu { margin: 10px 0; text-align: center; }
-        .menu a { color: #007bff; text-decoration: none; font-weight: bold; }
+        /* --- CSS (デザイン設定) --- */
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* ヘッダー */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        nav a:hover {
+            color: #4da6ff;
+        }
+
+        /* メインビジュアル（ヒーローセクション） */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .btn {
+            background-color: white;
+            color: #764ba2;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #eee;
+            transform: scale(1.05);
+        }
+
+        /* コンテンツセクション共通 */
+        section {
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        h2 {
+            border-bottom: 2px solid #764ba2;
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 30px;
+        }
+
+        /* サービス（3列レイアウト） */
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            flex: 1;
+            min-width: 200px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* お問い合わせフォーム */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        input, textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        button[type="submit"] {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        /* フッター */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* スマホ用（レスポンシブ対応） */
+        @media (max-width: 600px) {
+            .services-grid {
+                flex-direction: column;
+            }
+            nav ul {
+                display: none; /* スマホではメニューを隠す（今回は簡易版のため） */
+            }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>マイ・ウェブサイト</h1>
+        <div class="logo">My Website</div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <div class="menu">
-        <a href="about.html">自己紹介ページを見る</a>
+    <div class="hero">
+        <h1>ようこそ、私のWebサイトへ</h1>
+        <p>シンプルで美しいデザインのWebサイトを作成します。</p>
+        <a href="#contact" class="btn">お問い合わせ</a>
     </div>
 
-    <main style="text-align: center; margin-top: 30px;">
-        <h2>ホーム</h2>
-        <p>ボタンを押すと背景色が変わります。</p>
-        
-        <button id="colorButton" style="padding: 10px 20px; cursor: pointer;">背景色を変える</button>
-    </main>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>ここに自己紹介文が入ります。HTMLとJavaScriptを使って、シンプルかつ機能的なWebサイトを作成する練習をしています。デザインの変更も自由自在です。</p>
+    </section>
+
+    <section id="services">
+        <h2>Services</h2>
+        <div class="services-grid">
+            <div class="card">
+                <h3>Design</h3>
+                <p>見やすく使いやすいデザインを提供します。</p>
+            </div>
+            <div class="card">
+                <h3>Coding</h3>
+                <p>HTML/CSS/JSを用いた実装を行います。</p>
+            </div>
+            <div class="card">
+                <h3>Support</h3>
+                <p>公開後の更新や修正もサポートします。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <form id="contactForm">
+            <input type="text" placeholder="お名前" required>
+            <input type="email" placeholder="メールアドレス" required>
+            <textarea rows="5" placeholder="メッセージ本文" required></textarea>
+            <button type="submit">送信する</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 My Simple Website. All Rights Reserved.</p>
+    </footer>
 
     <script>
-        // 前回のJavaScript（背景色を変える動き）
-        const btn = document.getElementById('colorButton');
-        const colors = ['#f4f4f4', '#e3f2fd', '#fff3e0', '#f1f8e9'];
-        let i = 0;
-        btn.addEventListener('click', () => {
-            i = (i + 1) % colors.length;
-            document.body.style.backgroundColor = colors[i];
+        // --- JavaScript (動きの部分) ---
+
+        // スムーズスクロール機能
+        // メニューのリンクをクリックした時、スルスルっと移動させる
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault(); // 通常のジャンプ動作をキャンセル
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70, // ヘッダーの高さ分ずらす
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // お問い合わせフォームの送信イベント（デモ用）
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // 実際の送信（画面遷移）を防ぐ
+            
+            // 本当はここでサーバーにデータを送るが、今回はアラートを出すだけ
+            const name = form.querySelector('input[type="text"]').value;
+            alert(name + '様、お問い合わせありがとうございます！\n（これはデモなので実際には送信されていません）');
+            
+            form.reset(); // 入力欄を空にする
         });
     </script>
-
 </body>
+<nav style="background: #eee; padding: 10px; text-align: center;">
+    <a href="index.html" style="margin-right: 15px;">ホーム</a>
+    <a href="about.html" style="color: #007bff; text-decoration: none;">自己紹介</a>
+</nav>
 </html>
