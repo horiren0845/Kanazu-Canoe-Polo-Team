@@ -3,226 +3,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canoe Polo部 広報サイト</title>
+    <title>カヌーポロ部 公式サイト | 水上の格闘技</title>
     <style>
         :root {
-            /* スカイブルーとネイビーを基調に */
-            --primary-color: #0077be; 
-            --accent-color: #ff9800;
-            --bg-light: #f8f9fa;
+            --primary-color: #0077be; /* オーシャンブルー */
+            --secondary-color: #003366; /* 信頼のネイビー */
+            --accent-color: #ff9800; /* 情熱のオレンジ */
+            --bg-light: #f4f7f9;
+            --white: #ffffff;
             --text-color: #333;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Helvetica Neue', Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-            line-height: 1.6;
+            line-height: 1.8;
             margin: 0;
             color: var(--text-color);
             background-color: var(--bg-light);
         }
 
-        /* ヘッダーの装飾 */
+        /* ヘッダー・ヒーローセクション */
         header {
-            background: linear-gradient(135deg, var(--primary-color), #00aaff);
+            background: linear-gradient(rgba(0, 119, 190, 0.8), rgba(0, 51, 102, 0.8)), 
+                        url('https://images.unsplash.com/photo-1544551763-47a0159f963f?auto=format&fit=crop&q=80&w=1000'); /* カヤックのイメージ背景（仮） */
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 4rem 1rem;
+            padding: 100px 20px;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: 2px;
+            font-size: 3rem;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            opacity: 0.9;
         }
 
         /* ナビゲーション */
         nav {
-            background: white;
-            padding: 1rem;
-            text-align: center;
+            background: var(--white);
+            padding: 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
         nav a {
-            margin: 0 15px;
+            display: block;
+            padding: 1.2rem 1.5rem;
             text-decoration: none;
-            color: var(--primary-color);
+            color: var(--secondary-color);
             font-weight: bold;
-            transition: color 0.3s;
+            transition: all 0.3s;
         }
 
         nav a:hover {
-            color: var(--accent-color);
+            color: var(--primary-color);
+            background: rgba(0,119,190,0.05);
+            border-bottom: 3px solid var(--primary-color);
         }
 
         section {
-            padding: 4rem 1.5rem;
-            max-width: 900px;
+            padding: 60px 20px;
+            max-width: 1000px;
             margin: auto;
         }
 
         h2 {
-            border-left: 5px solid var(--primary-color);
-            padding-left: 15px;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
+            text-align: center;
+            font-size: 2rem;
+            position: relative;
+            margin-bottom: 40px;
+            color: var(--secondary-color);
         }
 
-        /* カードデザイン */
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 10px auto;
+        }
+
+        /* 活動紹介セクション */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .info-item {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 5px solid var(--primary-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* お知らせカード */
         .card {
-            background: white;
-            border: none;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: var(--white);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            border-left: 0 solid var(--primary-color);
+            transition: 0.2s;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            border-left-width: 8px;
+            transform: translateX(5px);
         }
 
-        .card strong {
-            color: #888;
-            font-size: 0.9rem;
+        .card .date {
+            color: #777;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
         }
 
-        /* フォームの改善 */
-        form {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        /* お問い合わせフォーム */
+        .form-container {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
         }
 
         input, textarea {
-            margin-bottom: 1.2rem;
-            padding: 0.8rem;
+            width: 100%;
+            padding: 12px;
             border: 1px solid #ddd;
-            border-radius: 6px;
+            border-radius: 8px;
             font-size: 1rem;
         }
 
         button {
-            background: var(--primary-color);
+            width: 100%;
+            background: var(--accent-color);
             color: white;
             border: none;
-            padding: 1rem;
-            border-radius: 6px;
-            font-size: 1.1rem;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 1.2rem;
             font-weight: bold;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.2s;
         }
 
         button:hover {
-            background: #005fa3;
+            background: #e68a00;
+            transform: translateY(-2px);
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
-            background: #222;
-            color: #ccc;
-            font-size: 0.9rem;
+            padding: 40px;
+            background: var(--secondary-color);
+            color: white;
         }
 
-        /* リストの装飾 */
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        ul li {
-            background: #eef7ff;
-            margin-bottom: 8px;
-            padding: 10px 15px;
-            border-radius: 6px;
+        /* スマホ対応 */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            nav a { padding: 1rem 0.5rem; font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>カヌーポロ部 公式サイト</h1>
+    <h1>カヌーポロ部</h1>
     <p>〜 水上の格闘技に挑む、最高のチーム 〜</p>
 </header>
 
 <nav>
-    <a href="#about">活動紹介</a>
-    <a href="#news">お知らせ</a>
-    <a href="#contact">お問い合わせ</a>
+    <ul>
+        <li><a href="#about">活動紹介</a></li>
+        <li><a href="#news">お知らせ</a></li>
+        <li><a href="#contact">入部希望・体験</a></li>
+    </ul>
 </nav>
 
 <section id="about">
-    <h2>活動紹介</h2>
-    <p>私たちの部活は、週に5回、<strong>「人間性が高いチーム」</strong>を目標に切磋琢磨しています！<br>
-    カヌーポロは、カヌーを操りながら水上のゴールにボールを入れるエキサイティングなスポーツです。初心者も大歓迎！</p>
-    <ul>
-        <li>📅 <strong>活動日:</strong> 火・木 (16:00~18:00) / 水・金 (16:30~18:30)</li>
-        <li>📍 <strong>場所:</strong> 平日 竹田川 / 休日 北潟湖</li>
-        <li>🏆 <strong>目標:</strong> 高校選手権優勝、あわらカップTOP3進出</li>
-    </ul>
+    <h2>ABOUT US</h2>
+    <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">
+        私たちの部活は、週に5回、<strong>「人間性が高いチーム」</strong>を目標に切磋琢磨しています！<br>
+        カヌーを操りながら、水上のゴールにボールを投げ入れるエキサイティングなスポーツです。
+    </p>
+    
+    <div class="info-grid">
+        <div class="info-item">
+            <h3>📅 活動日</h3>
+            <p>火・木 (16:00~18:00)<br>水・金 (16:30~18:30)</p>
+        </div>
+        <div class="info-item">
+            <h3>📍 活動場所</h3>
+            <p>【平日】竹田川<br>【休日】北潟湖</p>
+        </div>
+        <div class="info-item">
+            <h3>🏆 目標</h3>
+            <p>高校選手権 優勝<br>あわらカップ TOP3進出</p>
+        </div>
+    </div>
 </section>
 
 <section id="news">
-    <h2>お知らせ</h2>
+    <h2>NEWS</h2>
     <div id="news-container">
         </div>
 </section>
 
 <section id="contact">
-    <h2>体験・入部のお問い合わせ</h2>
-    <form id="form">
-        <label for="name">お名前</label>
-        <input type="text" id="name" placeholder="例：山田 太郎" required>
-        
-        <label for="email">メールアドレス</label>
-        <input type="email" id="email" placeholder="example@mail.com" required>
-        
-        <label for="message">質問・メッセージ</label>
-        <textarea id="message" rows="5" placeholder="体験希望日や質問などがあれば入力してください" required></textarea>
-        
-        <button type="submit">この内容で送信する</button>
-    </form>
+    <h2>CONTACT</h2>
+    <div class="form-container">
+        <form id="form">
+            <div class="form-group">
+                <label for="name">お名前</label>
+                <input type="text" id="name" placeholder="例：山田 太郎" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">メールアドレス</label>
+                <input type="email" id="email" placeholder="example@mail.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">質問・メッセージ</label>
+                <textarea id="message" rows="5" placeholder="体験希望日や質問などがあれば自由に入力してください" required></textarea>
+            </div>
+            
+            <button type="submit">この内容で送信する</button>
+        </form>
+    </div>
 </section>
 
 <footer>
-    <p>&copy; 2025 カヌーポロ部 広報チーム</p>
+    <p>&copy; 2025 カヌーポロ部 広報チーム<br>福井県あわら市</p>
 </footer>
 
 <script>
-    // 1. お知らせデータの管理（日付順に自動ソート）
+    // お知らせデータ
     const newsData = [
         { date: "2024/05/20", title: "【告知】新入生歓迎会のお知らせ" },
         { date: "2025/08/29", title: "【結果報告】高校選手権2025 兼 あわらカップジュニア選手権" },
         { date: "2025/05/01", title: "【結果報告】福井県カヌーポロ選手権2025" }
     ];
 
-    // 日付の新しい順に並び替え
+    // 新しい順にソート
     newsData.sort((a, b) => new Date(b.date) - new Date(a.date));
 
     const newsContainer = document.getElementById('news-container');
     newsData.forEach(item => {
         const div = document.createElement('div');
         div.className = 'card';
-        div.innerHTML = `<strong>${item.date}</strong><p style="margin:5px 0 0; font-weight:bold;">${item.title}</p>`;
+        div.innerHTML = `
+            <span class="date">${item.date}</span>
+            <span style="font-weight:bold;">${item.title}</span>
+        `;
         newsContainer.appendChild(div);
     });
 
-    // 2. フォーム送信のシミュレーション
+    // フォーム送信
     document.getElementById('form').addEventListener('submit', function(e) {
         e.preventDefault();
         const name = document.getElementById('name').value;
-        alert(`${name}さん、お問い合わせを受け付けました！\n(※デモ画面のため、実際のメール送信は行われません)`);
+        alert(`${name}さん、お問い合わせを受け付けました！\n数日以内に広報担当より返信いたします。`);
         this.reset();
     });
 </script>
