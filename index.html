@@ -23,13 +23,18 @@
         }
 
         body {
-            font-family: 'Helvetica Neue', Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-            line-height: 1.8;
-            margin: 0;
-            color: var(--text-color);
-            background-color: var(--bg-light);
-        }
-
+    font-family: 'Helvetica Neue', Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+    line-height: 1.8;
+    margin: 0;
+    color: var(--text-color);
+    
+    /* --- ここから背景画像の設定 --- */
+    background-image: url('画像のファイル名.jpg'); /* ここに画像の名前を入れる */
+    background-size: cover;        /* 画面いっぱいに広げる */
+    background-attachment: fixed; /* スクロールしても背景は動かさない */
+    background-position: center;   /* 中央に配置 */
+    /* -------------------------- */
+}
         /* ヘッダー・ヒーローセクション */
         header {
             background: linear-gradient(rgba(0, 119, 190, 0.8), rgba(0, 51, 102, 0.8)), 
@@ -322,4 +327,5 @@
 
 </body>
 </html>
+
 
