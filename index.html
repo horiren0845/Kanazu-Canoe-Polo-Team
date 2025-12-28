@@ -22,29 +22,26 @@
             scroll-behavior: smooth;
         }
 
-        body {
+ body {
     font-family: 'Helvetica Neue', Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
     line-height: 1.8;
     margin: 0;
     color: var(--text-color);
     
-    /* --- ここから背景画像の設定 --- */
-    background-image: url('canoe.awaracup'); /
-    background-size: cover;        /* 画面いっぱいに広げる */
-    background-attachment: fixed; /* スクロールしても背景は動かさない */
-    background-position: center;   /* 中央に配置 */
-    /* -------------------------- */
+    /* 背景画像の設定 */
+    background-image: url('https://drive.google.com/uc?export=view&id=https://drive.google.com/file/d/1ONhyHK9yXeheFZ60sPU1-ijsnIGrJmZU/view?usp=drive_link');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
 }
-        /* ヘッダー・ヒーローセクション */
-        header {
-            background: linear-gradient(rgba(0, 119, 190, 0.8), rgba(0, 51, 102, 0.8)), 
-                        url('https://images.unsplash.com/photo-1544551763-47a0159f963f?auto=format&fit=crop&q=80&w=1000'); /* カヤックのイメージ背景（仮） */
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
-        }
+
+/* 文字を読みやすくするために追加（重要！） */
+section {
+    background-color: rgba(255, 255, 255, 0.85); /* 白い背景を少し透かす */
+    margin: 20px auto;
+    padding: 40px;
+    border-radius: 15px;
+}
 
         header h1 {
             margin: 0;
@@ -327,6 +324,7 @@
 
 </body>
 </html>
+
 
 
 
