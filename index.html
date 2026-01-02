@@ -9,70 +9,76 @@
             --primary-color: #0077be; 
             --accent-color: #ff9800;
             --bg-light: #f8f9fa;
-            --text-color: #333;
         }
 
         body {
-            font-family: 'Helvetica Neue', Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-            line-height: 1.6;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
-            color: var(--text-color);
             background-color: var(--bg-light);
         }
 
-        /* --- ヘッダー：スライドショーの設定 --- */
+        /* --- ヘッダー：スムーズなスライドショーの設定 --- */
         header {
             position: relative;
-            overflow: hidden;
+            height: 350px; /* 高さを固定 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             color: white;
-            padding: 8rem 1rem;
             text-align: center;
+            overflow: hidden;
             background-color: #0077be;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        header::before {
-            content: "";
+        /* スライドする画像たちの共通設定 */
+        .slide {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0;
             background-size: cover;
             background-position: center;
-            /* 4枚なので20秒でループ */
-            animation: slider 20s infinite;
+            opacity: 0;
+            z-index: 0;
+            /* 20秒かけて4枚をループ（5秒ずつ） */
+            animation: crossfade 20s infinite;
         }
 
-        /* 文字を画像より上に表示 */
-        header h1, header p {
-            position: relative;
+        /* 青いフィルター（文字を読みやすくする） */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 119, 190, 0.4);
             z-index: 1;
         }
 
-        header h1 {
+        /* 各画像の表示タイミングをずらす */
+        .slide:nth-child(1) { background-image: url('https://drive.google.com/thumbnail?id=1ONhyHK9yXeheFZ60sPU1-ijsnIGrJmZU&sz=w1200'); animation-delay: 0s; }
+        .slide:nth-child(2) { background-image: url('https://drive.google.com/thumbnail?id=1n_j8aZD6wnGiA4DXZ0c7ihYeNjkdwUEC&sz=w1200'); animation-delay: 5s; }
+        .slide:nth-child(3) { background-image: url('https://drive.google.com/thumbnail?id=17ncUGe2QU4ke5_zjTzS4zjTvOtUpKL4P&sz=w1200'); animation-delay: 10s; }
+        .slide:nth-child(4) { background-image: url('https://drive.google.com/thumbnail?id=1JPqeC2h9hzOesWvzrU4uHpYEaoTP_0uZ&sz=w1200'); animation-delay: 15s; }
+
+        @keyframes crossfade {
+            0% { opacity: 0; }
+            5% { opacity: 1; }   /* ふわっと出る */
+            25% { opacity: 1; }  /* 表示維持 */
+            30% { opacity: 0; }  /* ふわっと消える */
+            100% { opacity: 0; }
+        }
+
+        header h1, header p {
+            position: relative;
+            z-index: 2;
             margin: 0;
-            font-size: 2.8rem;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        header p {
-            margin-top: 10px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-        }
-
-        /* スライドショーのアニメーション内容 */
-        @keyframes slider {
-            0%, 20% { background-image: linear-gradient(135deg, rgba(0, 119, 190, 0.6), rgba(0, 170, 255, 0.6)), url('https://drive.google.com/thumbnail?id=1ONhyHK9yXeheFZ60sPU1-ijsnIGrJmZU&sz=w1200'); }
-            25%, 45% { background-image: linear-gradient(135deg, rgba(0, 119, 190, 0.6), rgba(0, 170, 255, 0.6)), url('https://drive.google.com/thumbnail?id=1n_j8aZD6wnGiA4DXZ0c7ihYeNjkdwUEC&sz=w1200'); }
-            50%, 70% { background-image: linear-gradient(135deg, rgba(0, 119, 190, 0.6), rgba(0, 170, 255, 0.6)), url('https://drive.google.com/thumbnail?id=17ncUGe2QU4ke5_zjTzS4zjTvOtUpKL4P&sz=w1200'); }
-            75%, 95% { background-image: linear-gradient(135deg, rgba(0, 119, 190, 0.6), rgba(0, 170, 255, 0.6)), url('https://drive.google.com/thumbnail?id=1JPqeC2h9hzOesWvzrU4uHpYEaoTP_0uZ&sz=w1200'); }
-            100% { background-image: linear-gradient(135deg, rgba(0, 119, 190, 0.6), rgba(0, 170, 255, 0.6)), url('https://drive.google.com/thumbnail?id=1ONhyHK9yXeheFZ60sPU1-ijsnIGrJmZU&sz=w1200'); }
-        }
+        header h1 { font-size: 2.5rem; }
 
         nav {
             background: white;
@@ -81,57 +87,29 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: var(--primary-color);
-            font-weight: bold;
-            transition: color 0.3s;
-        }
+        nav a { margin: 0 15px; text-decoration: none; color: var(--primary-color); font-weight: bold; }
 
-        nav a:hover { color: var(--accent-color); }
+        section { padding: 3rem 1.5rem; max-width: 850px; margin: 20px auto; background: white; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
 
-        section {
-            padding: 4rem 1.5rem;
-            max-width: 900px;
-            margin: 30px auto;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+        h2 { border-left: 5px solid var(--primary-color); padding-left: 10px; color: var(--primary-color); }
 
-        h2 {
-            border-left: 5px solid var(--primary-color);
-            padding-left: 15px;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
-        }
+        .card { background: #f9f9f9; padding: 1rem; margin-bottom: 1rem; border-radius: 8px; border: 1px solid #eee; }
 
-        .card {
-            background: #fdfdfd;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid #eee;
-        }
-
-        ul { list-style: none; padding: 0; }
-        ul li { background: #eef7ff; margin-bottom: 8px; padding: 10px 15px; border-radius: 6px; }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: #222;
-            color: #ccc;
-        }
+        footer { text-align: center; padding: 2rem; background: #222; color: #ccc; }
     </style>
 </head>
 <body>
 
 <header>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="overlay"></div>
+
     <h1>カヌーポロ部 公式サイト</h1>
     <p>〜 水上の格闘技に挑む、最高のチーム 〜</p>
 </header>
@@ -139,17 +117,14 @@
 <nav>
     <a href="#about">活動紹介</a>
     <a href="#news">お知らせ</a>
-    <a href="#join">体験会申し込み</a> 
+    <a href="#join">体験会申し込み</a>
 </nav>
 
 <section id="about">
     <h2>活動紹介</h2>
-    <p>私たちの部活は、週に5回、<strong>「人間性が高いチーム」</strong>を目標に活動しています！<br>
-    カヌーポロは、カヌーに乗りながら水上のゴールにボールを入れるエキサイティングなスポーツです。初心者も大歓迎！</p>
     <ul>
-        <li>📅 <strong>活動日:</strong> 火・木（16:00 ~ 18:00）/ 水・金（17:00~18:30）/  土（9:00 ~ 12:00）</li>
-        <li>📍 <strong>場所:</strong> 平日 竹田川 / 休日 北潟湖</li>
-        <li>🏆 <strong>目標:</strong> 高校選手権優勝 / あわらカップTOP3</li>
+        <li>📅 <strong>活動日:</strong> 火・木・水・金・土</li>
+        <li>📍 <strong>場所:</strong> 竹田川 / 北潟湖</li>
     </ul>
 </section>
 
@@ -160,18 +135,16 @@
 
 <section id="join">
     <h2>体験会のお申し込み</h2>
-    <p>カヌーポロに興味がある方は、以下のフォームからお気軽にお申し込みください！<br>
-    一度見学してみたいという方も大歓迎です。</p>
+    <p>以下のフォームから送信してください。</p>
     
-    <div style="margin-top: 20px;">
+    <div style="width:100%; text-align:center;">
         <iframe 
-            src="https://docs.google.com/forms/d/e/1FAIpQLScXw17v-oO1G0jF_VwHh6-UvI53D2-V-vP_F9V-vW_w/viewform?embedded=true" 
+            src="https://docs.google.com/forms/d/e/1FAIpQLSfB2f0S-fK7C7-rBclq6585rU9N_W8xN8pGv8W_h0T-qY_wEw/viewform?embedded=true" 
             width="100%" 
-            height="1000" 
+            height="800" 
             frameborder="0" 
             marginheight="0" 
-            marginwidth="0"
-            style="border: 1px solid #ddd; border-radius: 8px;">
+            marginwidth="0">
             読み込んでいます…
         </iframe>
     </div>
@@ -183,16 +156,14 @@
 
 <script>
     const newsData = [
-        { date: "2025/07/20", title: "【結果報告】福井県カヌーポロ選手権2025" },
-        { date: "2025/08/29", title: "【結果報告】カヌーポロ高校選手2025" },
+        { date: "2025/08/29", title: "【結果報告】カヌーポロ高校選手権" },
         { date: "2026/04/20", title: "【告知】新入生歓迎会のお知らせ" }
     ];
-    newsData.sort((a, b) => new Date(b.date) - new Date(a.date));
     const newsContainer = document.getElementById('news-container');
     newsData.forEach(item => {
         const div = document.createElement('div');
         div.className = 'card';
-        div.innerHTML = `<strong>${item.date}</strong><p style="margin:5px 0 0; font-weight:bold;">${item.title}</p>`;
+        div.innerHTML = `<strong>${item.date}</strong><p>${item.title}</p>`;
         newsContainer.appendChild(div);
     });
 </script>
