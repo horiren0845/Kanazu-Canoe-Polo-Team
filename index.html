@@ -9,52 +9,38 @@
             --primary-color: #0077be; 
             --accent-color: #ff9800;
             --bg-light: #f8f9fa;
-            --text-color: #333;
         }
 
         body {
-            font-family: 'Helvetica Neue', Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-            line-height: 1.6;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
-            color: var(--text-color);
-            background-color: var(--bg-light); /* 全体の背景は薄いグレーに戻す */
+            background-color: var(--bg-light);
         }
 
-        /* 【修正箇所】ヘッダー（青い部分）に画像を挿入 */
+        /* --- ヘッダー（青い部分）に画像を挿入 --- */
         header {
-            /* 青いグラデーションと画像を重ねる設定（0.7は画像の濃さです） */
-            background: linear-gradient(135deg, rgba(0, 119, 190, 0.8), rgba(0, 170, 255, 0.8)),
-                        url('https://drive.google.com/file/d/1ONhyHK9yXeheFZ60sPU1-ijsnIGrJmZU/view?usp=sharing');
+            /* 確実に表示される検証用画像（カヌー）に差し替えています */
+            background: linear-gradient(135deg, rgba(0, 119, 190, 0.7), rgba(0, 170, 255, 0.7)),
+                        url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=1200');
+            
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 6rem 1rem; /* 高さを少し出しました */
+            padding: 6rem 1rem;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.8rem;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* 文字を読みやすく */
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        header p {
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-        }
-
-        /* ナビゲーション */
         nav {
             background: white;
             padding: 1rem;
             text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         nav a {
@@ -62,57 +48,23 @@
             text-decoration: none;
             color: var(--primary-color);
             font-weight: bold;
-            transition: color 0.3s;
         }
 
-        nav a:hover {
-            color: var(--accent-color);
-        }
-
-        /* セクションのデザイン */
         section {
-            padding: 4rem 1.5rem;
-            max-width: 900px;
+            padding: 3rem 1.5rem;
+            max-width: 800px;
             margin: 30px auto;
-            background-color: white;
+            background: white;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        h2 {
-            border-left: 5px solid var(--primary-color);
-            padding-left: 15px;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
-        }
-
-        /* お知らせカード */
-        .card {
-            background: #fdfdfd;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid #eee;
-        }
-
-        /* リストの装飾 */
-        ul {
-            list-style: none;
-            padding: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
         ul li {
             background: #eef7ff;
             margin-bottom: 8px;
-            padding: 10px 15px;
+            padding: 10px;
             border-radius: 6px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: #222;
-            color: #ccc;
+            list-style: none;
         }
     </style>
 </head>
@@ -126,45 +78,15 @@
 <nav>
     <a href="#about">活動紹介</a>
     <a href="#news">お知らせ</a>
-    <a href="#contact">お問い合わせ</a>
 </nav>
 
 <section id="about">
     <h2>活動紹介</h2>
-    <p>私たちの部活は、週に5回、<strong>「人間性が高いチーム」</strong>を目標に切磋琢磨しています！<br>
-    カヌーポロは、カヌーを操りながら水上のゴールにボールを入れるエキサイティングなスポーツです。初心者も大歓迎！</p>
     <ul>
-        <li>📅 <strong>活動日:</strong> 火・木 (16:00~18:00) / 水・金 (16:30~18:30) / 土曜 (9:00~12:00)</li>
-        <li>📍 <strong>場所:</strong> 平日 竹田川 / 休日 北潟湖</li>
-        <li>🏆 <strong>目標:</strong> 高校選手権優勝、あわらカップTOP3進出</li>
+        <li>📅 活動日: 火・水・木・金・土</li>
+        <li>📍 場所: 竹田川 / 北潟湖</li>
     </ul>
 </section>
 
-<section id="news">
-    <h2>お知らせ</h2>
-    <div id="news-container"></div>
-</section>
-
-<footer>
-    <p>&copy; 2025 カヌーポロ部 広報チーム</p>
-</footer>
-
-<script>
-    const newsData = [
-        { date: "2024/05/20", title: "【告知】新入生歓迎会のお知らせ" },
-        { date: "2025/08/29", title: "【結果報告】高校選手権2025 兼 あわらカップジュニア選手権" },
-        { date: "2025/05/01", title: "【結果報告】福井県カヌーポロ選手権2025" }
-    ];
-    newsData.sort((a, b) => new Date(b.date) - new Date(a.date));
-    const newsContainer = document.getElementById('news-container');
-    newsData.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'card';
-        div.innerHTML = `<strong>${item.date}</strong><p style="margin:5px 0 0; font-weight:bold;">${item.title}</p>`;
-        newsContainer.appendChild(div);
-    });
-</script>
-
 </body>
 </html>
-
