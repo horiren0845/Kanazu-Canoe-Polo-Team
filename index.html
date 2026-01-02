@@ -21,19 +21,17 @@
             background-color: var(--bg-light); /* サイト全体の背景は落ち着いたグレーに */
         }
 
-        /* --- 【修正箇所】ヘッダーの青い部分にだけ画像を挿入 --- */
+       /* --- 【修正箇所】headerの背景を「thumbnail」形式に変更 --- */
         header {
-            /* 青いグラデーションと画像を重ねています。0.6を調整すると画像の濃さが変わります */
             background: linear-gradient(135deg, rgba(0, 119, 190, 0.6), rgba(0, 170, 255, 0.6)),
-                        url('https://drive.google.com/uc?export=view&id=1ONhyHK9yXeheFZ60sPU1-ijsnIGrJmZU');
+                        url('https://drive.google.com/thumbnail?id=1ONhyHK9yXeheFZ60sPU1-ijsnIGrJmZU&sz=w1200'); /* ここを書き換え */
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 6rem 1rem; /* 高さを出して画像を見えやすくしました */
+            padding: 6rem 1rem;
             text-align: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
         header h1 {
             margin: 0;
             font-size: 2.8rem;
@@ -170,3 +168,4 @@
 
 </body>
 </html>
+
