@@ -140,32 +140,49 @@
 </section>
 
 <section id="news">
-    <h2>お知らせ</h2>
-    <div id="news-container"></div>
-</section>
+        <h2>お知らせ</h2>
+        <div id="news-container"></div>
+    </section>
 
-<footer>
-    <p>&copy; 2025 カヌーポロ部 広報チーム</p>
-</footer>
+    <section id="join">
+        <h2>体験・入部のお申し込み</h2>
+        <p>カヌーポロに興味がある方は、以下のフォームからお気軽にお申し込みください！<br>
+        一度見学してみたいという方も大歓迎です。</p>
+        
+        <div style="margin-top: 20px;">
+            <iframe 
+                src="https://docs.google.com/forms/d/e/1FAIpQLScyv7Y7-W-7lU2_Y0-L5uI9X8-D4W4-P7X-pS0-r0-r0-r0-r0/viewform?embedded=true" 
+                width="100%" 
+                height="800" 
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0"
+                style="border: 1px solid #ddd; border-radius: 8px;">
+                読み込んでいます…
+            </iframe>
+        </div>
+    </section>
 
-<script>
-    const newsData = [
-        { date: "2024/05/20", title: "【告知】新入生歓迎会のお知らせ" },
-        { date: "2025/08/29", title: "【結果報告】高校選手権2025" },
-        { date: "2025/05/01", title: "【結果報告】福井県カヌーポロ選手権2025" }
-    ];
+    <footer>
+        <p>&copy; 2025 カヌーポロ部 広報チーム</p>
+    </footer>
 
-    newsData.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-    const newsContainer = document.getElementById('news-container');
-    newsData.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'card';
-        div.innerHTML = `<strong>${item.date}</strong><p style="margin:5px 0 0; font-weight:bold;">${item.title}</p>`;
-        newsContainer.appendChild(div);
-    });
-</script>
-
+    <script>
+        const newsData = [
+            { date: "2024/05/20", title: "【告知】新入生歓迎会のお知らせ" },
+            { date: "2025/08/29", title: "【結果報告】高校選手権2025" },
+            { date: "2025/05/01", title: "【結果報告】福井県カヌーポロ選手権2025" }
+        ];
+        newsData.sort((a, b) => new Date(b.date) - new Date(a.date));
+        const newsContainer = document.getElementById('news-container');
+        newsData.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'card';
+            div.innerHTML = `<strong>${item.date}</strong><p style="margin:5px 0 0; font-weight:bold;">${item.title}</p>`;
+            newsContainer.appendChild(div);
+        });
+    </script>
 </body>
 </html>
+
 
