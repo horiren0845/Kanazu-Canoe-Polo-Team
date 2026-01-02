@@ -17,35 +17,36 @@
             line-height: 1.6;
             margin: 0;
             color: var(--text-color);
-            background-color: #eef7ff; /* サイト全体の余白の色 */
+            background-color: var(--bg-light); /* 全体の背景は薄いグレーに戻す */
         }
 
-        /* 背景画像を適用するメインコンテナ */
-        .main-background {
-            /* Googleドライブの直リンク */
-            /* background-image の部分をこちらに
-            /* background-image の部分をこちらに差し替え */
-            background-image: url('https://drive.google.com/thumbnail?id=1ONhyHK9yXeheFZ60sPU1-ijsnIGrJmZU&sz=w1920');
+        /* 【修正箇所】ヘッダー（青い部分）に画像を挿入 */
+        header {
+            /* 青いグラデーションと画像を重ねる設定（0.7は画像の濃さです） */
+            background: linear-gradient(135deg, rgba(0, 119, 190, 0.8), rgba(0, 170, 255, 0.8)),
+                        url('https://drive.google.com/uc?export=view&id=1ONhyHK9yXeheFZ60sPU1-ijsnIGrJmZU');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* スクロールしても画像が動かない設定 */
-            padding-bottom: 50px; /* 下に少し余白 */
-        }
-
-        header {
-            background: linear-gradient(135deg, rgba(0, 119, 190, 0.9), rgba(0, 170, 255, 0.9));
             color: white;
-            padding: 4rem 1rem;
+            padding: 6rem 1rem; /* 高さを少し出しました */
             text-align: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* 文字を読みやすく */
         }
 
+        header p {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        /* ナビゲーション */
         nav {
             background: white;
             padding: 1rem;
@@ -68,13 +69,14 @@
             color: var(--accent-color);
         }
 
+        /* セクションのデザイン */
         section {
             padding: 4rem 1.5rem;
             max-width: 900px;
             margin: 30px auto;
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: white;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         h2 {
@@ -84,51 +86,16 @@
             color: var(--primary-color);
         }
 
+        /* お知らせカード */
         .card {
-            background: white;
+            background: #fdfdfd;
             border-radius: 12px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
         }
 
-        .card strong {
-            color: #888;
-            font-size: 0.9rem;
-        }
-
-        form {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        input, textarea {
-            margin-bottom: 1.2rem;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-        }
-
-        button {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 1rem;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: #222;
-            color: #ccc;
-        }
-
+        /* リストの装飾 */
         ul {
             list-style: none;
             padding: 0;
@@ -139,6 +106,13 @@
             margin-bottom: 8px;
             padding: 10px 15px;
             border-radius: 6px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #222;
+            color: #ccc;
         }
     </style>
 </head>
@@ -155,42 +129,24 @@
     <a href="#contact">お問い合わせ</a>
 </nav>
 
-<div class="main-background">
+<section id="about">
+    <h2>活動紹介</h2>
+    <p>私たちの部活は、週に5回、<strong>「人間性が高いチーム」</strong>を目標に切磋琢磨しています！<br>
+    カヌーポロは、カヌーを操りながら水上のゴールにボールを入れるエキサイティングなスポーツです。初心者も大歓迎！</p>
+    <ul>
+        <li>📅 <strong>活動日:</strong> 火・木 (16:00~18:00) / 水・金 (16:30~18:30) / 土曜 (9:00~12:00)</li>
+        <li>📍 <strong>場所:</strong> 平日 竹田川 / 休日 北潟湖</li>
+        <li>🏆 <strong>目標:</strong> 高校選手権優勝、あわらカップTOP3進出</li>
+    </ul>
+</section>
 
-    <section id="about">
-        <h2>活動紹介</h2>
-        <p>私たちの部活は、週に5回、<strong>「人間性が高いチーム」</strong>を目標に切磋琢磨しています！<br>
-        カヌーポロは、カヌーを操りながら水上のゴールにボールを入れるエキサイティングなスポーツです。初心者も大歓迎！</p>
-        <ul>
-            <li>📅 <strong>活動日:</strong> 火・木 (16:00~18:00) / 水・金 (16:30~18:30) / 土曜 (9:00~12:00)</li>
-            <li>📍 <strong>場所:</strong> 平日 竹田川 / 休日 北潟湖</li>
-            <li>🏆 <strong>目標:</strong> 高校選手権優勝、あわらカップTOP3進出</li>
-        </ul>
-    </section>
+<section id="news">
+    <h2>お知らせ</h2>
+    <div id="news-container"></div>
+</section>
 
-    <section id="news">
-        <h2>お知らせ</h2>
-        <div id="news-container"></div>
-    </section>
-
-    <section id="contact">
-        <h2>体験・入部のお問い合わせ</h2>
-        <form id="form">
-            <label for="name">お名前</label>
-            <input type="text" id="name" placeholder="例：山田 太郎" required>
-            
-            <label for="email">メールアドレス</label>
-            <input type="email" id="email" placeholder="example@mail.com" required>
-            
-            <label for="message">質問・メッセージ</label>
-            <textarea id="message" rows="5" placeholder="体験希望日や質問などがあれば入力してください" required></textarea>
-            
-            <button type="submit">この内容で送信する</button>
-        </form>
-    </section>
-
-</div> <footer>
-    <p>© 2025 カヌーポロ部 広報チーム</p>
+<footer>
+    <p>&copy; 2025 カヌーポロ部 広報チーム</p>
 </footer>
 
 <script>
@@ -199,9 +155,7 @@
         { date: "2025/08/29", title: "【結果報告】高校選手権2025 兼 あわらカップジュニア選手権" },
         { date: "2025/05/01", title: "【結果報告】福井県カヌーポロ選手権2025" }
     ];
-
     newsData.sort((a, b) => new Date(b.date) - new Date(a.date));
-
     const newsContainer = document.getElementById('news-container');
     newsData.forEach(item => {
         const div = document.createElement('div');
@@ -209,15 +163,7 @@
         div.innerHTML = `<strong>${item.date}</strong><p style="margin:5px 0 0; font-weight:bold;">${item.title}</p>`;
         newsContainer.appendChild(div);
     });
-
-    document.getElementById('form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('name').value;
-        alert(`${name}さん、お問い合わせを受け付けました！`);
-        this.reset();
-    });
 </script>
 
 </body>
 </html>
-
