@@ -179,15 +179,26 @@
 
 <script>
     const newsData = [
-        { date: "2026/04/07", title: "【告知】新入生部活動体験会のお知らせ" },
-        { date: "2025/08/29", title: "【結果報告】カヌーポロ高校選手権2025" },
-        { date: "2025/05/24", title: "【結果報告】保田カップ2025" }
+        { 
+            date: "2026/04/07", 
+            title: "【告知】新入生部活動体験会のお知らせ",
+            url: "https://example.com/details" // ← ここに飛ばしたい先のURLを入れる
+        },
+        { date: "2025/08/29", title: "【結果報告】カヌーポロ高校選手権2025", url: "#" },
+        { date: "2025/05/24", title: "【結果報告】保田カップ2025", url: "#" }
     ];
+
     const newsContainer = document.getElementById('news-container');
     newsData.forEach(item => {
         const div = document.createElement('div');
         div.className = 'card';
-        div.innerHTML = `<strong>${item.date}</strong><p>${item.title}</p>`;
+        // 全体をリンク(aタグ)で囲むように変更
+        div.innerHTML = `
+            <a href="${item.url}" style="text-decoration: none; color: inherit; display: block;">
+                <strong>${item.date}</strong>
+                <p style="margin: 5px 0 0 0;">${item.title} ＞</p>
+            </a>
+        `;
         newsContainer.appendChild(div);
     });
 </script>
