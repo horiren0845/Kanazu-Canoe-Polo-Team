@@ -178,15 +178,24 @@
 </footer>
 
 <script>
-/* index.html の下の方にある newsData を探して書き換え */
+/* index.html の一番下の方にあるコードを探して修正 */
 const newsData = [
     { 
         date: "2026/04/07", 
         title: "【告知】新入生部活動体験会のお知らせ",
-        url: "news.html"  /* ← ここを必ず news.html にする */
+        url: "news.html" 
     },
-    { date: "2025/08/29", title: "【結果報告】カヌーポロ高校選手権2025", url: "#" },
-    { date: "2025/05/24", title: "【結果報告】保田カップ2025", url: "#" }
+    { 
+        date: "2025/08/29", 
+        title: "【結果報告】カヌーポロ高校選手権2025", 
+        url: "result.html" 
+    },
+    { 
+        date: "2025/05/24", 
+        title: "【結果報告】保田カップ2025", 
+        // ↓ ここを新しいファイル名に正確に書き換えます
+        url: "awaracup2025.result.html" 
+    }
 ];
 
     const newsContainer = document.getElementById('news-container');
