@@ -3,34 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>大会結果報告 - 金津カヌーポロチーム</title>
+    <title>あわらカップ2025 結果報告 - カヌーポロ部</title>
     <style>
         :root {
-            --primary-color: #0047ab;
-            --accent-color: #ffd700; /* 優勝をイメージしたゴールド */
+            --primary-color: #0077be;
             --bg-light: #f8f9fa;
         }
-        body { font-family: sans-serif; line-height: 1.8; margin: 0; background: var(--bg-light); }
-        header { background: var(--primary-color); color: white; padding: 20px; text-align: center; }
-        .container { max-width: 800px; margin: 30px auto; padding: 30px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        h1 { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); }
-        .result-badge { display: inline-block; background: var(--accent-color); color: #333; padding: 5px 15px; border-radius: 5px; font-weight: bold; margin-bottom: 10px; }
-        .btn-back { display: inline-block; margin-top: 30px; padding: 10px 25px; background: #666; color: white; text-decoration: none; border-radius: 25px; }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        /* 動画セクションのスタイル */
+        .video-section {
+            background: #000; /* 動画の背景を黒にして引き締める */
+            padding: 0;
+            margin: 0;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9の比率 */
+            height: 0;
+            overflow: hidden;
+            max-width: 1000px; /* 広がりすぎないよう制限 */
+            margin: 0 auto;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* コンテンツ部分のスタイル */
+        .content-container {
+            padding: 2rem 1.5rem;
+            max-width: 850px;
+            margin: -20px auto 20px; /* 動画に少し被せるか、密着させる */
+            background: white;
+            border-radius: 12px;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        .result-card {
+            background: #f0f7ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary-color);
+            margin-top: 20px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #222;
+            color: #ccc;
+            margin-top: 40px;
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <div style="font-weight: bold;">金津カヌーポロチーム</div>
-</header>
+<section class="video-section">
+    <div class="video-container">
+        <iframe 
+            src="https://www.youtube.com/embed/videoseries?list=PLWQIpBvgXBvZKYT2ECon6Ed4buqgtaSzX" 
+            title="あわらカップ2025 再生リスト" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+        </iframe>
+    </div>
+</section>
 
-<div class="container">
-    <div class="result-badge">大会結果報告</div>
-    <h1>カヌーポロ高校選手権2025</h1>
+<div class="content-container">
+    <h1>あわらカップ2025 結果報告</h1>
     
-    <p>先日行われました第36回あわらカップ 兼 高校選手権の結果をご報告します！</p>
+    <div class="result-card">
+        <h2>🏆 大会成績</h2>
+        <p><strong>結果：準優勝！</strong></p>
+        <p>強豪チームを相手に、最後まで諦めないプレーを見せることができました。応援ありがとうございました！</p>
+    </div>
 
-    <h2>試合結果</h2>
+    <section>
+       <h3>試合結果</h3>
     <ul>
         <li>＜第36回あわらカップ＞</li> 
         <li>チャレンジリーグ予選：0勝4敗（予選4位）</li> 
@@ -39,17 +117,12 @@
         <li>トライアルリーグ下位決定戦：がんばったで賞 </li>
         <li>＜高校選手権2025＞</li>
         <li>高校生の部：2位、3位</li>
-                            
-    </ul>
+        </ul>
+    </section>
 
-    <h2>最終成績</h2>
-    <p style="font-size: 1.5rem; font-weight: bold; color: #d32f2f;">高校準優勝！</p>
-
-    <h2>笹原 律輝部長コメント</h2>
-    <p>「目標の優勝には届きませんでしたが、チーム一丸となって戦い抜くことができました。応援ありがとうございました！」</p>
-
-    <a href="index.html" class="btn-back">← トップページへ戻る</a>
+    <a href="index.html" class="back-link">← ホームへ戻る</a>
 </div>
 
-</body>
-</html>
+<footer>
+    <p>&copy; 福井県立金津高等学校 カヌーポロ部</p>
+
