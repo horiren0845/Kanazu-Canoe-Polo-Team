@@ -15,22 +15,48 @@
             margin: 0;
             background-color: var(--bg-light);
             line-height: 1.6;
+            padding-top: 20px; /* 上部に少し余白 */
         }
 
-        /* 動画セクションのスタイル */
-        .video-section {
-            background: #000; /* 動画の背景を黒にして引き締める */
-            padding: 0;
-            margin: 0;
+        .content-container {
+            padding: 2rem 1.5rem;
+            max-width: 850px;
+            margin: 0 auto 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .result-card {
+            background: #f0f7ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary-color);
+            margin: 20px 0;
+        }
+
+        /* --- 動画エリアのスタイル --- */
+        .video-label {
+            margin-top: 30px;
+            font-weight: bold;
+            color: var(--primary-color);
         }
 
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9の比率 */
+            padding-bottom: 56.25%; /* 16:9比率 */
             height: 0;
             overflow: hidden;
-            max-width: 1000px; /* 広がりすぎないよう制限 */
-            margin: 0 auto;
+            border-radius: 8px;
+            background: #000;
+            margin-bottom: 20px;
         }
 
         .video-container iframe {
@@ -41,35 +67,9 @@
             height: 100%;
         }
 
-        /* コンテンツ部分のスタイル */
-        .content-container {
-            padding: 2rem 1.5rem;
-            max-width: 850px;
-            margin: -20px auto 20px; /* 動画に少し被せるか、密着させる */
-            background: white;
-            border-radius: 12px;
-            position: relative;
-            z-index: 10;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            color: var(--primary-color);
-            border-bottom: 3px solid var(--primary-color);
-            padding-bottom: 10px;
-        }
-
-        .result-card {
-            background: #f0f7ff;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 5px solid var(--primary-color);
-            margin-top: 20px;
-        }
-
         .back-link {
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 10px;
             text-decoration: none;
             color: var(--primary-color);
             font-weight: bold;
@@ -86,18 +86,6 @@
 </head>
 <body>
 
-<section class="video-section">
-    <div class="video-container">
-        <iframe 
-            src="https://youtube.com/playlist?list=PLDhoLwGL-7defpVUS64NWyNSAggcEt4P8&si=vecYHNHXTYEkCxGe" 
-            title="あわらカップ2025 再生リスト" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen>
-        </iframe>
-    </div>
-</section>
-
 <div class="content-container">
     <h1>あわらカップ2025 結果報告</h1>
     
@@ -108,9 +96,9 @@
     </div>
 
     <section>
-       <h3>試合結果</h3>
+        <h3>試合結果</h3>
     <ul>
-        <li>＜第36回あわらカップ＞</li> 
+         <li>＜第36回あわらカップ＞</li> 
         <li>チャレンジリーグ予選：0勝4敗（予選4位）</li> 
         <li>チャレンジリーグ下位決定戦： vs 上海舟際チーム（敗退）</li>
         <li>トライアルリーグ予選：1勝3敗（予選3位）</li>
@@ -120,9 +108,23 @@
         </ul>
     </section>
 
+    <h3 class="video-label">📺 大会ダイジェスト（再生リスト）</h3>
+    <div class="video-container">
+        <iframe 
+            src="https://www.youtube.com/embed/videoseries?list=PLWQIpBvgXBvZKYT2ECon6Ed4buqgtaSzX" 
+            title="あわらカップ2025 再生リスト" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
     <a href="index.html" class="back-link">← ホームへ戻る</a>
 </div>
 
 <footer>
     <p>&copy; 福井県立金津高等学校 カヌーポロ部</p>
+</footer>
 
+</body>
+</html>
