@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>お知らせ詳細 - 金津カヌーポロ部</title>
     <style>
-        /* 全体の設定 */
         :root {
-            --primary-color: #0047ab; /* 金津ブルー */
-            --accent-color: #ff9800;
+            --primary-color: #0047ab;
             --bg-light: #f8f9fa;
             --text-dark: #333;
         }
@@ -21,16 +19,13 @@
             background-color: var(--bg-light);
         }
 
-        /* ヘッダー */
         header {
             background-color: var(--primary-color);
             color: white;
             padding: 20px;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        /* メインコンテンツの枠 */
         .container {
             max-width: 800px;
             margin: 30px auto;
@@ -42,7 +37,6 @@
 
         h1 {
             font-size: 1.5rem;
-            margin-top: 0;
             color: var(--primary-color);
             border-bottom: 2px solid var(--primary-color);
             padding-bottom: 10px;
@@ -54,32 +48,23 @@
             margin-top: 30px;
         }
 
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        /* --- 地図のスタイル設定 --- */
+        /* 地図の枠の設定 */
         .map-container {
-            margin-top: 20px;
+            margin: 20px 0;
             width: 100%;
-            height: 350px; /* 地図の高さ（お好みで調整してください） */
+            height: 350px;
             border-radius: 12px;
-            overflow: hidden; /* 角丸からはみ出る地図を隠す */
+            overflow: hidden;
             border: 1px solid #ddd;
+            background-color: #eee; /* 読み込み中やエラー時にグレーにする */
         }
 
-        /* Googleマップのiframeを枠いっぱいに広げる設定 */
         .map-container iframe {
-            width: 100% !important;
-            height: 100% !important;
+            width: 100%;
+            height: 100%;
             border: none;
         }
 
-        /* 戻るボタン */
         .btn-back {
             display: inline-block;
             margin-top: 30px;
@@ -88,14 +73,50 @@
             color: white;
             text-decoration: none;
             border-radius: 25px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn-back:hover {
-            background-color: #444;
-            transform: translateY(-2px);
         }
 
         footer {
-            text
+            text-align: center;
+            padding: 40px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div style="font-weight: bold; font-size: 1.2rem;">金津カヌーポロチーム</div>
+</header>
+
+<div class="container">
+    <h1>【告知】新入生部活動体験会のお知らせ</h1>
+    
+    <p>新入生の皆さん、ご入学おめでとうございます！</p>
+
+    <h2>開催概要</h2>
+    <ul>
+        <li><strong>日時：</strong> 2026年4月9日（木） 16:00 〜 18:00</li>
+        <li><strong>練習場所：</strong> 竹田川</li>
+    </ul>
+
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3227.123456789!2d136.223812!3d36.212644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff8944567890!2z44OI44Oq44Og44OR44O844Kv44GL44Gq44Gl!5e0!3m2!1sja!2sjp!4v1234567890" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
+
+    <h2>内容</h2>
+    <p>実際にカヌーに乗って漕いでみたり、ボールを使ったミニゲームを体験できます。</p>
+
+    <a href="index.html" class="btn-back">← トップページへ戻る</a>
+</div>
+
+<footer>
+    &copy; 2026 Kanazu Canoe Polo Team
+</footer>
+
+</body>
+</html>
