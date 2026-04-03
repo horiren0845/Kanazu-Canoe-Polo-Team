@@ -23,4 +23,101 @@
 
         /* ヘッダー */
         header {
-            background-color: var
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* メインコンテンツの枠 */
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-top: 30px;
+        }
+
+        /* 箇条書きの設定 */
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* 戻るボタン */
+        .btn-back {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 25px;
+            background-color: #666;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-back:hover {
+            background-color: #444;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div style="font-weight: bold; font-size: 1.2rem;">金津カヌーポロチーム</div>
+</header>
+
+<div class="container">
+    <h1>【告知】新入生部活動体験会のお知らせ</h1>
+    
+    <p>新入生の皆さん、ご入学おめでとうございます！<br>
+    カヌーポロ部では、以下の日程で体験会を実施します。初心者大歓迎です！</p>
+
+    <h2>開催概要</h2>
+    <ul>
+        <li><strong>日時：</strong> 2026年4月9日（木） 16:00 〜 18:00</li>
+        <li><strong>練習場所：</strong> 竹田川</li>
+        <li><strong>集合場所：</strong> 生徒玄関前</li>
+        <li><strong>持ち物：</strong> 水着、タオル、サンダル、飲み物</li>
+    </ul>
+
+    <h2>内容</h2>
+    <p>実際にカヌーに乗って漕いでみたり、ボールを使ったミニゲームを体験できます。先輩たちが優しく教えるので安心してください！</p>
+
+    <a href="index.html" class="btn-back">← トップページへ戻る</a>
+</div>
+
+<footer>
+    &copy; 2026 Kanazu Canoe Polo Team
+</footer>
+
+</body>
+</html>
